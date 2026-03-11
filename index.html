@@ -5,16 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drawback: Exporte com Margem Real | Freitas Comex</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0B1D3A;
-    --navy-mid: #132C54;
-    --forest: #1B4332;
-    --forest-mid: #2D6A4F;
-    --green: #40916C;
-    --green-light: rgba(64, 145, 108, 0.12);
-    --green-glow: rgba(45, 106, 79, 0.08);
+    --navy: #2c2d65;
+    --navy-mid: #3a3b7a;
+    --navy-light: #4a4b90;
+    --pink: #ce0f69;
+    --pink-dark: #b00d5a;
+    --pink-glow: rgba(206, 15, 105, 0.12);
+    --yellow: #ff9e1b;
+    --yellow-dark: #e88a0a;
+    --yellow-glow: rgba(255, 158, 27, 0.12);
     --sand: #F5F0E8;
     --sand-dark: #E8E0D2;
     --white: #FFFFFF;
@@ -22,13 +24,12 @@
     --gray-600: #6B7280;
     --gray-400: #9CA3AF;
     --gray-100: #F7F8FA;
-    --red-soft: #E8573A;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: var(--navy);
     background: var(--white);
     overflow-x: hidden;
@@ -37,7 +38,7 @@
 
   /* ─── HERO ─── */
   .hero {
-    background: linear-gradient(170deg, var(--navy) 0%, var(--forest) 100%);
+    background: var(--navy);
     color: var(--white);
     padding: 56px 24px 64px;
     position: relative;
@@ -47,11 +48,22 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -80px;
-    right: -100px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, var(--green-glow) 0%, transparent 60%);
+    top: -120px;
+    right: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(206,15,105,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -40px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(255,158,27,0.10) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -65,27 +77,28 @@
   .hero-tag {
     display: inline-block;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--green);
-    border: 1px solid rgba(64,145,108,0.4);
+    color: var(--yellow);
+    border: 1px solid rgba(255,158,27,0.40);
     padding: 6px 14px;
     border-radius: 3px;
     margin-bottom: 28px;
   }
 
   .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(32px, 5vw, 48px);
-    line-height: 1.15;
-    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.18;
+    font-weight: 800;
     margin-bottom: 20px;
+    letter-spacing: -0.5px;
   }
 
   .hero h1 em {
-    font-style: italic;
-    color: var(--green);
+    font-style: normal;
+    color: var(--pink);
   }
 
   .hero-sub {
@@ -94,6 +107,7 @@
     color: rgba(255,255,255,0.72);
     max-width: 580px;
     margin-bottom: 36px;
+    font-weight: 400;
   }
 
   .hero-ctas {
@@ -106,9 +120,9 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--green);
+    background: var(--pink);
     color: var(--white);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 15px;
     padding: 14px 32px;
     border-radius: 4px;
@@ -117,7 +131,7 @@
   }
 
   .hero-cta-primary:hover {
-    background: var(--forest-mid);
+    background: var(--pink-dark);
     transform: translateY(-1px);
   }
 
@@ -127,13 +141,14 @@
     gap: 8px;
     color: rgba(255,255,255,0.7);
     font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
     padding: 14px 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.25);
+    border-bottom: 1px solid rgba(255,158,27,0.35);
     transition: color 0.2s;
   }
 
-  .hero-cta-secondary:hover { color: var(--white); }
+  .hero-cta-secondary:hover { color: var(--yellow); }
 
   .hero-cta-primary svg, .hero-cta-secondary svg { width: 16px; height: 16px; }
 
@@ -147,19 +162,20 @@
 
   .section-label {
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--forest-mid);
+    color: var(--pink);
     margin-bottom: 16px;
   }
 
   .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(24px, 3.5vw, 32px);
-    line-height: 1.25;
+    font-family: 'Open Sans', sans-serif;
+    font-size: clamp(22px, 3.5vw, 30px);
+    line-height: 1.28;
     margin-bottom: 24px;
-    font-weight: 400;
+    font-weight: 800;
+    letter-spacing: -0.3px;
   }
 
   /* ─── DOR ─── */
@@ -183,13 +199,13 @@
     background: var(--white);
     padding: 22px 24px;
     border-radius: 6px;
-    border-left: 3px solid var(--red-soft);
+    border-left: 3px solid var(--yellow);
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   }
 
   .pain-item h4 {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 6px;
   }
 
@@ -214,15 +230,17 @@
   }
 
   .deliver-card .card-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 24px;
-    color: var(--green);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--pink);
     margin-bottom: 10px;
+    letter-spacing: -0.5px;
   }
 
   .deliver-card h4 {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 8px;
   }
 
@@ -234,11 +252,11 @@
 
   /* ─── PARA QUEM ─── */
   .audience {
-    background: var(--forest);
+    background: var(--navy);
     color: var(--white);
   }
 
-  .audience .section-label { color: var(--green); }
+  .audience .section-label { color: var(--yellow); }
   .audience .section-title { color: var(--white); }
 
   .audience-text {
@@ -269,7 +287,7 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: rgba(64,145,108,0.25);
+    background: var(--pink-glow);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -278,7 +296,7 @@
   .audience-item .check svg {
     width: 12px;
     height: 12px;
-    color: var(--green);
+    color: var(--pink);
   }
 
   /* ─── POR QUE AGORA ─── */
@@ -290,15 +308,15 @@
   }
 
   .urgency-quote {
-    background: var(--green-light);
+    background: var(--yellow-glow);
     border-radius: 6px;
     padding: 24px 28px;
     margin-top: 24px;
-    border-left: 3px solid var(--green);
+    border-left: 3px solid var(--yellow);
     font-size: 15px;
     line-height: 1.7;
     color: var(--navy);
-    font-style: italic;
+    font-weight: 500;
   }
 
   /* ─── SOBRE ─── */
@@ -326,10 +344,11 @@
 
   .about-highlights .hl strong {
     display: block;
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    color: var(--forest-mid);
-    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--pink);
+    letter-spacing: -0.5px;
   }
 
   .about-highlights .hl span {
@@ -339,16 +358,31 @@
 
   /* ─── CTA FINAL ─── */
   .final-cta {
-    background: linear-gradient(170deg, var(--navy) 0%, var(--forest) 100%);
+    background: var(--navy);
     color: var(--white);
     text-align: center;
     padding: 72px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -60px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(206,15,105,0.14) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .final-cta .section-title {
     color: var(--white);
     max-width: 560px;
     margin: 0 auto 16px;
+    position: relative;
+    z-index: 1;
   }
 
   .final-cta p {
@@ -357,6 +391,8 @@
     max-width: 500px;
     margin: 0 auto 36px;
     line-height: 1.6;
+    position: relative;
+    z-index: 1;
   }
 
   .cta-group {
@@ -364,15 +400,17 @@
     flex-direction: column;
     align-items: center;
     gap: 14px;
+    position: relative;
+    z-index: 1;
   }
 
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--green);
+    background: var(--pink);
     color: var(--white);
-    font-weight: 600;
+    font-weight: 700;
     font-size: 15px;
     padding: 14px 36px;
     border-radius: 4px;
@@ -381,7 +419,7 @@
   }
 
   .btn-primary:hover {
-    background: var(--forest-mid);
+    background: var(--pink-dark);
     transform: translateY(-1px);
   }
 
@@ -390,9 +428,13 @@
     color: rgba(255,255,255,0.55);
     text-decoration: underline;
     text-underline-offset: 3px;
+    text-decoration-color: rgba(255,158,27,0.5);
   }
 
-  .btn-secondary:hover { color: var(--white); }
+  .btn-secondary:hover {
+    color: var(--yellow);
+    text-decoration-color: var(--yellow);
+  }
 
   /* ─── FORM ─── */
   .form-section {
@@ -406,11 +448,13 @@
   }
 
   .form-container h3 {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 800;
     margin-bottom: 8px;
     text-align: center;
+    letter-spacing: -0.3px;
+    color: var(--navy);
   }
 
   .form-container .form-sub {
@@ -434,7 +478,7 @@
   .form-group label {
     display: block;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 6px;
     color: var(--navy);
   }
@@ -445,7 +489,7 @@
     padding: 11px 14px;
     border: 1px solid var(--sand-dark);
     border-radius: 4px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     color: var(--navy);
     background: var(--white);
@@ -455,25 +499,30 @@
   .form-group input:focus,
   .form-group select:focus {
     outline: none;
-    border-color: var(--green);
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px var(--pink-glow);
   }
 
   .form-submit {
     margin-top: 8px;
     width: 100%;
     padding: 14px;
-    background: var(--green);
+    background: var(--pink);
     color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
     font-size: 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.25s;
+    transition: background 0.25s, transform 0.2s;
+    letter-spacing: 0.2px;
   }
 
-  .form-submit:hover { background: var(--forest-mid); }
+  .form-submit:hover {
+    background: var(--pink-dark);
+    transform: translateY(-1px);
+  }
 
   .form-note {
     font-size: 12px;
@@ -487,8 +536,14 @@
     text-align: center;
     padding: 32px 24px;
     font-size: 13px;
-    color: var(--gray-400);
-    border-top: 1px solid var(--sand-dark);
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    border-top: 1px solid var(--navy-mid);
+  }
+
+  footer a {
+    color: var(--yellow);
+    text-decoration: none;
   }
 
   @media (max-width: 600px) {
@@ -727,7 +782,7 @@
 </section>
 
 <footer>
-  Freitas Comex &bull; freitascomex.com.br &bull; Todos os direitos reservados
+  Freitas Comex &bull; <a href="https://freitascomex.com.br">freitascomex.com.br</a> &bull; Todos os direitos reservados
 </footer>
 
 </body>
